@@ -15,6 +15,7 @@
     <ProjectGuid>{681EA0B1-C533-4C0D-9790-D65E52D1463D}</ProjectGuid>
     <RootNamespace>RelayPluginTest</RootNamespace>
     <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">

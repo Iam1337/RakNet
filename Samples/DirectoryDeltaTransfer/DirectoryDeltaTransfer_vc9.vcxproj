@@ -14,6 +14,7 @@
     <ProjectName>DirectoryDeltaTransfer</ProjectName>
     <ProjectGuid>{BC349AD2-94A3-4D99-BFD1-02ED5D3F103E}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">

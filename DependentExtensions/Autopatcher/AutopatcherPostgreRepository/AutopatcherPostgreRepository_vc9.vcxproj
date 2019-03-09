@@ -15,6 +15,7 @@
     <ProjectGuid>{0FD54BD0-C49C-4681-80CE-AA22B8995CA8}</ProjectGuid>
     <RootNamespace>AutopatcherPostgreSQLRepository</RootNamespace>
     <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">

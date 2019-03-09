@@ -14,6 +14,7 @@
     <ProjectGuid>{0BC48323-6B49-4B29-9961-044BB129F827}</ProjectGuid>
     <RootNamespace>PHPDirectoryServer2</RootNamespace>
     <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">

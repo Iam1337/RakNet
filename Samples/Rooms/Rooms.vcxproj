@@ -15,6 +15,7 @@
     <ProjectGuid>{1C145911-F5BF-4D71-B9BE-FEEBCF9F16FA}</ProjectGuid>
     <RootNamespace>Rooms</RootNamespace>
     <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
