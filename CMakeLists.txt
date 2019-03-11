@@ -64,6 +64,7 @@ if (MSVC)
 	FIXCOMPILEOPTIONS()
 endif (MSVC)
 
+include_directories(SYSTEM include/RakNet DependentExtensions)
 add_subdirectory(lib)
 
 

@@ -1,6 +1,6 @@
 FILE(GLOB ALL_CPP_SRCS 
-	${RakNet_SOURCE_DIR}/source/*.cpp
-	${RakNet_SOURCE_DIR}/source/*.h)
+	${RakNet_SOURCE_DIR}/include/RakNet/*.h
+	${RakNet_SOURCE_DIR}/source/*.cpp)
 
 if (MSVC)
 	add_definitions("/D WIN32 /D _CRT_NONSTDC_NO_DEPRECATE /D _CRT_SECURE_NO_DEPRECATE /GS- /GR-")
@@ -22,10 +22,4 @@ if( RAKNET_DLL_COMPILE )
 	add_library(${RAKNET_DLL_NAME} SHARED ${ALL_CPP_SRCS})
 	target_link_libraries (${RAKNET_DLL_NAME} ${RAKNET_LIBRARY_LIBS})
 	target_compile_definitions(${RAKNET_DLL_NAME} PUBLIC "_RAKNET_DLL")
-
-	#if (MSVC)
-	#	target_compile_definitions(${RAKNET_DLL_NAME} PUBLIC "_RAKNET_DLL")
-	#else(MSVC)
-	#	target_compile_definitions(${RAKNET_DLL_NAME} PUBLIC "-D_RAKNET_DLL")
-	#endif (MSVC)
 endif()
