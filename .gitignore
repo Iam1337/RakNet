@@ -1,15 +1,30 @@
+# RakNet .gitignore file 2019
+
+# -------
+# FOLDERS
+# -------
+
 # Visual Studio
 [Dd]ebug/
 [Rr]elease/
-x64/
+[Xx]64/
+[Xx]84/
 
+# Cmake
+[Bb]uild/
+[Bb]uilds/
+
+# -----
+# FILES
+# -----
+
+# Visual Studio
 *.opensdf
 *.sdf
 *.user
 *.suo
 
-# Xcode and OS X 
-build/
+# Xcode and macOS
 *.pbxuser
 !default.pbxuser
 *.mode1v3
@@ -21,12 +36,11 @@ build/
 xcuserdata
 *.xccheckout
 *.moved-aside
-DerivedData
 *.hmap
 *.ipa
 contents.xcworkspacedata
-Debug/
-Release/
 .DS_Store
 .Trashes
 .vs
+
+
