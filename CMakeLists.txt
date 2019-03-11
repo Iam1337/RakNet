@@ -67,7 +67,7 @@ endif (MSVC)
 add_subdirectory(lib)
 
 
-set(RAKNET_COMMON_LIBS RakNetLibStatic)
+set(RAKNET_COMMON_LIBS ${RAKNET_STATIC_NAME})
 
 #disabled
 #if( RAKNET_ENABLE_SAMPLES )
