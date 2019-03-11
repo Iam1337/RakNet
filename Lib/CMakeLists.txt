@@ -1,19 +1,31 @@
-cmake_minimum_required(VERSION 2.6)
+FILE(GLOB ALL_CPP_SRCS 
+	${RakNet_SOURCE_DIR}/Source/*.cpp
+	${RakNet_SOURCE_DIR}/Source/*.h)
 
-set( RAKNET_INTERNAL_INCLUDE_DIRS 
-	${RakNet_SOURCE_DIR}/Source 
-	${RakNet_SOURCE_DIR}/DependentExtensions/openssl-1.0.0d/include 
-	${RakNet_SOURCE_DIR}/DependentExtensions
-)
+if (MSVC)
+	add_definitions("/D WIN32 /D _CRT_NONSTDC_NO_DEPRECATE /D _CRT_SECURE_NO_DEPRECATE /GS- /GR-")
+endif (MSVC)
 
-if( RAKNET_ENABLE_STATIC )
-	add_subdirectory(LibStatic)
+# Create Static Link Library project.
+if( RAKNET_STATIC_COMPILE )
+	add_library(${RAKNET_STATIC_NAME} STATIC ${ALL_CPP_SRCS})
+	target_link_libraries (${RAKNET_STATIC_NAME} ${RAKNET_LIBRARY_LIBS})
+	target_compile_definitions(${RAKNET_STATIC_NAME} PUBLIC "_RAKNET_LIB")
+
+	if (MSVC)
+		set_target_properties(${RAKNET_STATIC_NAME} PROPERTIES STATIC_LIBRARY_FLAGS "/NODEFAULTLIB:\"LIBCD.lib LIBCMTD.lib MSVCRT.lib\"" )
+	endif (MSVC)
 endif()
 
+# Create Dynamic Link Library project.
+if( RAKNET_DLL_COMPILE )
+	add_library(${RAKNET_DLL_NAME} SHARED ${ALL_CPP_SRCS})
+	target_link_libraries (${RAKNET_DLL_NAME} ${RAKNET_LIBRARY_LIBS})
+	target_compile_definitions(${RAKNET_DLL_NAME} PUBLIC "_RAKNET_DLL")
 
-if( RAKNET_ENABLE_DLL )
-	add_subdirectory(DLL)
+	#if (MSVC)
+	#	target_compile_definitions(${RAKNET_DLL_NAME} PUBLIC "_RAKNET_DLL")
+	#else(MSVC)
+	#	target_compile_definitions(${RAKNET_DLL_NAME} PUBLIC "-D_RAKNET_DLL")
+	#endif (MSVC)
 endif()
-
-FILE(GLOB ALL_HEADER_SRCS ${RakNet_SOURCE_DIR}/Source/*.h)
-INSTALL(FILES ${ALL_HEADER_SRCS} DESTINATION ${CMAKE_PREFIX_PATH}/include/raknet)
