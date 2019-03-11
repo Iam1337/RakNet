@@ -1010,6 +1010,8 @@ void BitStream::ReverseBytes(unsigned char *inByteArray, unsigned char *inOutByt
 }
 void BitStream::ReverseBytesInPlace(unsigned char *inOutData,const unsigned int length)
 {
+	std::reverse(inOutData, inOutData + length);
+	/*
 	unsigned char temp;
 	BitSize_t i;
 	for (i=0; i < (length>>1); i++)
@@ -1018,6 +1020,7 @@ void BitStream::ReverseBytesInPlace(unsigned char *inOutData,const unsigned int 
 		inOutData[i]=inOutData[length-i-1];
 		inOutData[length-i-1]=temp;
 	}
+	*/
 }
 
 bool BitStream::Read(char *varString)
