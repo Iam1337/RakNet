@@ -33,13 +33,8 @@ using namespace RakNet;
 #include <pthread.h>
 #endif
 
-#if defined(_WIN32_WCE) || defined(WINDOWS_PHONE_8) || defined(WINDOWS_STORE_RT)
-int RakThread::Create( LPTHREAD_START_ROUTINE start_address, void *arglist, int priority)
-#elif defined(_WIN32)
+#if defined(_WIN32)
 int RakThread::Create( unsigned __stdcall start_address( void* ), void *arglist, int priority)
-
-
-
 #else
 int RakThread::Create( void* start_address( void* ), void *arglist, int priority)
 #endif
@@ -49,19 +44,13 @@ int RakThread::Create( void* start_address( void* ), void *arglist, int priority
 	unsigned threadID = 0;
 
 
-#if   defined(WINDOWS_PHONE_8) || defined(WINDOWS_STORE_RT)
-	threadHandle = CreateThread(NULL,0,start_address,arglist,CREATE_SUSPENDED, 0);
-#elif defined _WIN32_WCE
+#if defined _WIN32_WCE
 	threadHandle = CreateThread(NULL,MAX_ALLOCA_STACK_ALLOCATION*2,start_address,arglist,0,(DWORD*)&threadID);
 #else
 	threadHandle = (HANDLE) _beginthreadex( NULL, MAX_ALLOCA_STACK_ALLOCATION*2, start_address, arglist, 0, &threadID );
 #endif
 	
 	SetThreadPriority(threadHandle, priority);
-
-#if defined(WINDOWS_PHONE_8) || defined(WINDOWS_STORE_RT)
-	ResumeThread(threadHandle);
-#endif
 
 	if (threadHandle==0)
 	{

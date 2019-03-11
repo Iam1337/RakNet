@@ -109,9 +109,9 @@ public:
 // 		static void RecvFromBlockingIPV4And6( RakNetSocket *s, RakPeer *rakPeer, char *dataOut, int *bytesReadOut, SystemAddress *systemAddressOut, RakNet::TimeUS *timeRead );
 // 	#endif
 //	static void RecvFromBlocking( RakNetSocket *s, RakPeer *rakPeer, char *dataOut, int *bytesReadOut, SystemAddress *systemAddressOut, RakNet::TimeUS *timeRead );
-#if defined(WINDOWS_STORE_RT)
+//#if defined(WINDOWS_STORE_RT)
 //	static void RecvFromBlocking_WindowsStore8( RakNetSocket *s, RakPeer *rakPeer, char *dataOut, int *bytesReadOut, SystemAddress *systemAddressOut, RakNet::TimeUS *timeRead );
-#endif
+//#endif
 
 	/// Given a socket and IP, retrieves the subnet mask, on linux the socket is unused
 	/// \param[in] inSock the socket 

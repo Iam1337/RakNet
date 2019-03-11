@@ -16,12 +16,10 @@
 #define RAKNETSOCKET2_BERKLEY_NATIVE_CLIENT_CPP
 
 // Every platform except windows store 8 and native client supports Berkley sockets
-#if !defined(WINDOWS_STORE_RT)
 
 #include "Itoa.h"
 
 // Shared on most platforms, but excluded from the listed
-
 
 void DomainNameToIP_Berkley_IPV4And6( const char *domainName, char ip[65] )
 {
@@ -104,10 +102,6 @@ void DomainNameToIP_Berkley( const char *domainName, char ip[65] )
 #endif
 }
 
-
-
-
-#endif // !defined(WINDOWS_STORE_RT) && !defined(__native_client__)
 
 #endif // file header
 
